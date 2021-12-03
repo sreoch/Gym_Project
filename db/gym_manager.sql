@@ -13,7 +13,7 @@ CREATE TABLE members(
 CREATE TABLE gymclasses(
     id SERIAL PRIMARY KEY,
     activity_name VARCHAR(255),
-    start_time INT,
+    start_time VARCHAR(255),
     duration INT,
     description VARCHAR(255)
 );
