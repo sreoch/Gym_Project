@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Members</h1>
+
+<div>
+    <p>
+        <h3>All Members</h3>
+        <br>
+        {% for member in members %}
+            <label for="first_name">First Name</label> = {{ member.first_name }},
+            <label for="last_name">Last Name</label> = {{ member.last_name }},
+            <label for="age">Age</label> = {{ member.age }}, 
+            <label for="membership_type">Membership Type</label> Membership type = {{ member.membership_type }}
+            <br>
+        {% endfor %}
+    </p>
+</div>
+    
+{% endblock content %}
