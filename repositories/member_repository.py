@@ -24,7 +24,7 @@ def select_all():
     sql = "SELECT * FROM members"
     results = run_sql(sql)
     for row in results:
-        member = Member(row['first_name'], row['last_name'], row['age'], row['membership_type'])
+        member = Member(row['first_name'], row['last_name'], row['age'], row['membership_type'], row['id'])
         members.append(member)
     return members
 
@@ -36,7 +36,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        member = Member(result['first_name'], result['last_name'], result['age'], result['membership_type'])
+        member = Member(result['first_name'], result['last_name'], result['age'], result['membership_type'], result['id'])
     return member
 
 # delete member from id
@@ -59,7 +59,7 @@ def gymclasses(member):
     results = run_sql(sql, values)
 
     for row in results:
-        gymclass = GymClass(row['activity_name'], row['start_time'], row['duration'], row['description'])
+        gymclass = GymClass(row['activity_name'], row['start_time'], row['duration'], row['description'], row['id'])
         gymclasses.append(gymclass)
     return gymclasses
 
