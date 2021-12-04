@@ -50,6 +50,19 @@ def delete_all():
     sql = "DELETE FROM members"
     run_sql(sql)
 
+# show classes booked by member
+def gymclasses(member):
+    gymclasses = []
+
+    sql = "SELECT gymclasses.* FROM gymclasses INNER JOIN bookings ON bookings.gymclass_id = gymclasses.id WHERE member_id = %s"
+    values = [member.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        gymclass = GymClass(row['activity_name'], row['start_time'], row['duration'], row['description'])
+        gymclasses.append(gymclass)
+    return gymclasses
+
 # show classes attended by member -TODO
 
 # add member to a class? def add_member_to_class(id)?

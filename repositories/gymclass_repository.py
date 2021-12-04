@@ -12,9 +12,50 @@ def save(gymclass):
     return gymclass
 
 # select all gymclasses
+def select_all():
+    gymclasses = []
+
+    sql = "SELECT * FROM gymclasses"
+    results = run_sql(sql)
+    
+    for row in results:
+        gymclass = GymClass(row['activity_name'], row['start_time'], row['duration'], row['description'])
+        gymclasses.append(gymclass)
+    return gymclass
 
 # select gymclass by id
+def select(id):
+    gymclass = None
+    sql = "SELECT * FROM gymclasses WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
 
-# show members attending a gymclass
+    if result is not None:
+        gymclass = GymClass(result['activity_name'], result['start_time'], result['duration'], result['description'])
+    return gymclass
 
-# add member to class? -TODO
+# delete all
+def delete_all():
+    sql = "DELETE FROM gymclasses"
+    run_sql(sql)
+
+# delete by id 
+def delete(id):
+    sql = "DELETE FROM gymclasses WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+# show members in class? -TODO
+def members(gymclass):
+    members = []
+
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE gymclass_id = %s"
+    values = [gymclass.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        member = Member(row['first_name'], row['last_name'], row['age'], row['membership_type'])
+        members.append(member)
+
+    return members
+
