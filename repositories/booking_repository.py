@@ -29,3 +29,28 @@ def select_all():
         booking = Booking(member, location, row['id'])
         bookings.append(booking)
     return bookings
+
+def gymclass(booking):
+    sql = "SELECT * FROM gymclasses WHERE id = %s"
+    values = [booking.gymclass.id]
+    results = run_sql(sql, values)[0]
+    gymclass = GymClass(results['activity_name'], results['start_time'], results['duration'], results['description'])
+    return gymclass
+
+def member(booking):
+    sql = "SELECT * FROM members WHERE id = %s"
+    values = [booking.member.id]
+    results = run_sql(sql, values)[0]
+    member = Member(results['first_name'], results['last_name'], results['age'], results['membership_type'])
+    return member
+
+# delete all bookings
+def delete_all():
+    sql = "DELETE FROM bookings"
+    run_sql(sql)
+
+# delete booking by id
+def delete(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
