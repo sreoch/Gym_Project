@@ -43,7 +43,7 @@ def select(id):
 def delete(id):
     sql = "DELETE FROM members WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    run_sql(sql, values)
 
 # delete all members
 def delete_all():
@@ -63,6 +63,7 @@ def gymclasses(member):
         gymclasses.append(gymclass)
     return gymclasses
 
-# show classes attended by member -TODO
-
-# add member to a class? def add_member_to_class(id)?
+def update(member):
+    sql = "UPDATE members SET (first_name, last_name, age, membership_type) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [member.first_name, member.last_name, member.age, member.membership_type, member.id]
+    run_sql(sql, values)

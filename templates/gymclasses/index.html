@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+    <p>
+        <h3>All Classes</h3>
+        {% for gymclass in gymclasses %}
+            <a href="/classes/remove_class/{{ gymclass.id }}">Remove</a>
+            <label for="activity_name">Class name</label> = {{ gymclass.activity_name }},
+            <label for="start_time">Start time</label> = {{ gymclass.start_time }},
+            <label for="duration">Duration</label> = {{ gymclass.duration}}, 
+            <label for="description">Description</label> = {{ gymclass.description }}
+            <a href="/classes/show/{{gymclass.id}}">Show info and members</a>
+            <br>
+            
+        {% endfor %}
+    </p>
+</div>
+
+    
+{% endblock content %}

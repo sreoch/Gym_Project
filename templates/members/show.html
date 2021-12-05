@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{ member.name }}</h1>
+
+<h3>Member Info and Classes:</h3>
+
+<form action="/members/edit/{{member.id}}">
+  <ul>
+    <li>Name: {{ member.first_name }} {{ member.last_name }}</li>
+    <li>Age: {{ member.age }}</li>
+    <li>Membership Type: {{ member.membership_type }}</li>
+    <li>
+      Booked for these classes: 
+      {% for gymclass in gymclasses %} {{ gymclass.activity_name }} -- {{
+      gymclass.start_time }} -- {{ gymclass.duration }} -- {{
+      gymclass.description }} --
+      <a href="/members/edit/{{member.id}}/remove_booking">Remove</a>
+    </li>
+    {% endfor %}
+    <input type="submit" value="Edit"/>
+  </ul>
+</form>
+
+{% endblock content %}
