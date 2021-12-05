@@ -2,21 +2,17 @@
 
 {% block content %}
 
-<div>
-    <p>
-        <h3>All Classes</h3>
-        {% for gymclass in gymclasses %}
-            <a href="/classes/remove_class/{{ gymclass.id }}">Remove</a>
-            <label for="activity_name">Class name</label> = {{ gymclass.activity_name }},
-            <label for="start_time">Start time</label> = {{ gymclass.start_time }},
-            <label for="duration">Duration</label> = {{ gymclass.duration}}, 
-            <label for="description">Description</label> = {{ gymclass.description }}
-            <a href="/classes/show/{{gymclass.id}}">Show info and members</a>
-            <br>
-            
-        {% endfor %}
-    </p>
-</div>
+<p>
+    <h1>All Classes</h1>
+    {% for gymclass in gymclasses %}
+        <h3>{{ gymclass.activity_name }}</h3>
+        <label for="start_time">Start time: {{ gymclass.start_time }}</label>
+        <label for="duration">Duration: {{ gymclass.duration }}</label>
+        <label for="description">Description: {{ gymclass.description }}</label>
+        <a href="/classes/{{ gymclass.id }}">View members</a>
+    {% endfor %}
+</p>
+
 
     
 {% endblock content %}

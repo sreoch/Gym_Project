@@ -21,7 +21,7 @@ def select_all():
     for row in results:
         gymclass = GymClass(row['activity_name'], row['start_time'], row['duration'], row['description'], row['id'])
         gymclasses.append(gymclass)
-    return gymclass
+    return gymclasses
 
 # select gymclass by id
 def select(id):

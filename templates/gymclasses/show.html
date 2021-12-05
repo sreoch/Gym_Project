@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul>
+    <h3>{{ gymclass.activity_name }}</h3>
+    {% for member in members %}
+        <li>{{ member.first_name }} {{ member.last_name }}
+        <a href="/<id>/delete_booking">Remove Booking</a></li>
+    {% endfor %}
+</ul>
+{% endblock content %}  
