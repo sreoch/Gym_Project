@@ -6,13 +6,30 @@
     <h1>All Classes</h1>
     {% for gymclass in gymclasses %}
         <h3>{{ gymclass.activity_name }}</h3>
+        <form action="/classes/delete/{{ gymclass.id }}" method="POST">
+            <input type="submit" value="Remove">
+        </form>
         <label for="start_time">Start time: {{ gymclass.start_time }}</label>
         <label for="duration">Duration: {{ gymclass.duration }}</label>
         <label for="description">Description: {{ gymclass.description }}</label>
         <a href="/classes/{{ gymclass.id }}">View members</a>
     {% endfor %}
 </p>
-
+<div>
+    <h3>Add New Class</h3>
+    <form action="/classes/new" method="post">
+        <label for="activity_name">Activity name</label>
+        <input type="text" name="activity_name" id="activity_name"> <br>
+        <label for="start_time">Start time</label>
+        <input type="text" name="start_time" id="start_time"> <br>
+        <label for="duration">Duration</label>
+        <input type="number" name="duration" id="duration"> <br>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="3"></textarea>
+        </select> <br>
+        <input type="submit" value="Add Class">
+    </form>
+</div>
 
     
 {% endblock content %}

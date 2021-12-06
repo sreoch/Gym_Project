@@ -7,3 +7,8 @@ import repositories.gymclass_repository as gymclass_repository
 
 bookings_blueprint = Blueprint("bookings", __name__)
 
+# delete booking
+@bookings_blueprint.route("/classes/<id>/delete", methods=["POST"])
+def delete_booking(id):
+    booking_repository.delete(id)
+    return redirect('/classes/<id>')

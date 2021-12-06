@@ -43,7 +43,7 @@ def delete_all():
 def delete(id):
     sql = "DELETE FROM gymclasses WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    result = run_sql(sql, values)
 
 # show members in class? -TODO
 def members(gymclass):

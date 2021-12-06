@@ -5,7 +5,9 @@
     <h3>{{ gymclass.activity_name }}</h3>
     {% for member in members %}
         <li>{{ member.first_name }} {{ member.last_name }}
-        <a href="/<id>/delete_booking">Remove Booking</a></li>
+        <form action="/classes/{{gymclass.id}}" method="POST">
+            <input type="submit" value="Remove">
+        </form>
     {% endfor %}
 </ul>
 {% endblock content %}  
