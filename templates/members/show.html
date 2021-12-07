@@ -11,9 +11,7 @@
     <li>
       Booked for these classes: 
       {% for gymclass in gymclasses %} {{ gymclass.activity_name }} -- {{
-      gymclass.start_time }} -- {{ gymclass.duration }} -- {{
-      gymclass.description }} --
-      <a href="/members/edit/{{member.id}}/remove_booking">Remove</a>
+      gymclass.start_time }} -- {{ gymclass.duration }}
     </li>
     {% endfor %}
     <input type="submit" value="Edit"/>

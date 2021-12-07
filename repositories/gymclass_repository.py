@@ -59,3 +59,8 @@ def members(gymclass):
 
     return members
 
+def update(gymclass):
+    sql = "UPDATE gymclasses SET (activity_name, start_time, duration, description) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [gymclass.activity_name, gymclass.start_time, gymclass.duration, gymclass.description, gymclass.id]
+    run_sql(sql, values)
+

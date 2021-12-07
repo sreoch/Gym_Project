@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    <h3>Edit Class</h3>
+    <form action="/classes/edit/{{ gymclass.id }}" method="post">
+        <label for="activity_name">Activity name</label>
+        <input type="text" name="activity_name" id="activity_name" value={{gymclass.activity_name}} > <br>
+        <label for="start_time">Start time</label>
+        <input type="text" name="start_time" id="start_time" value={{gymclass.start_time}}> <br>
+        <label for="duration">Duration</label>
+        <input type="number" name="duration" id="duration" value={{gymclass.duration}}> <br>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="3" value={{gymclass.description}}></textarea>
+        </select> <br>
+        <button type="submit">Submit</button>
+    </form>  
+</div>
+
+
+{% endblock content %}

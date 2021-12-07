@@ -2,6 +2,7 @@ from pdb import run
 from db.run_sql import run_sql
 from models.gymclass import GymClass
 from models.member import Member
+from models.booking import Booking
 
 # save a member function
 #   SQL query with placeholder
@@ -64,6 +65,13 @@ def gymclasses(member):
     return gymclasses
 
 def update(member):
-    sql = "UPDATE members SET (first_name, last_name, age, membership_type) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE members SET (first_name, last_name, age, membership_type) = (%s, %s, %s, %s) WHERE id = %s"
     values = [member.first_name, member.last_name, member.age, member.membership_type, member.id]
     run_sql(sql, values)
+
+def remove_bookings_from_member(id):
+    sql = "DELETE FROM bookings WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+

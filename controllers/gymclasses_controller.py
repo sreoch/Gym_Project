@@ -31,9 +31,21 @@ def delete_class(id):
     gymclass_repository.delete(id)
     return redirect('/classes')
 
-# @members_blueprint.route("/members/delete/<id>",  methods=["POST"])
-# def delete_member(id):
-#     member_repository.delete(id)
-#     return redirect('/members')
+@gymclasses_blueprint.route("/classes/edit/<id>")
+def edit_class(id):
+    gymclass = gymclass_repository.select(id)
+    members = gymclass_repository.members(gymclass)
+    return render_template("gymclasses/edit.html", gymclass=gymclass, members=members)
+
+@gymclasses_blueprint.route("/classes/edit/<id>", methods=["POST"])
+def update_class(id):
+    activity_name = request.form["activity_name"]
+    start_time = request.form["start_time"]
+    duration = request.form["duration"]
+    description = request.form["description"]
+    gymclass = GymClass(activity_name, start_time, duration, description, id)
+    gymclass_repository.update(gymclass)
+    return redirect('/classes')
+
 
     
