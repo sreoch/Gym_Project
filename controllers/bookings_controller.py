@@ -11,7 +11,8 @@ bookings_blueprint = Blueprint("bookings", __name__)
 def bookings():
     members = member_repository.select_all()
     gymclasses = gymclass_repository.select_all()
-    return render_template("/bookings/index.html", members=members, gymclasses=gymclasses)
+    bookings = booking_repository.select_all()
+    return render_template("/bookings/index.html", members=members, gymclasses=gymclasses, bookings=bookings)
 
 @bookings_blueprint.route("/bookings", methods=["POST"])
 def add_booking():
@@ -23,8 +24,13 @@ def add_booking():
     booking_repository.save(booking)
     return redirect('/bookings')
 
-@bookings_blueprint.route("/classes/remove/<id>", methods=["POST"])
-def remove_class_booking(id):
-    booking = booking_repository.select(id)
+@bookings_blueprint.route("/bookings/delete/<id>", methods=["POST"])
+def delete_booking(id):
     booking_repository.delete(id)
-    return redirect('/bookings', booking=booking)
+    return redirect('/bookings')
+
+# @bookings_blueprint.route("/classes/remove/<id>", methods=["POST"])
+# def remove_class_booking(id):
+#     booking = booking_repository.select(id)
+#     booking_repository.delete(id)
+#     return redirect('/bookings', booking=booking)
