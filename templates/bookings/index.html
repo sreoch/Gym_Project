@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-<h1>Bookings</h1>
+
+<div class="wrapper">
+<h1 class="header">Bookings</h1>
 
 
-<form action="/bookings" method="POST">
+<form action="/bookings" class="booking_form" method="POST">
 
     <label for="member_id">Select a member</label>
     <select name="member_id" id="member_id">
@@ -24,7 +25,7 @@
     
 </form>
 
-<div>
+<div class="booking_content">
     <p>
         <h3>All Bookings</h3>
         <ul>
@@ -36,6 +37,7 @@
         {% endfor %}
         </ul>
     </p>
+</div>
 </div>
 
 {% endblock content %}

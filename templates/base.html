@@ -2,17 +2,23 @@
 <html>
     <head>
         <title>Gym Manager</title>
-        <header>
+
+<<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Red+Hat+Display:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href={{ url_for('static', filename='css/style.css' )}}>
+    </head>
+        <header class="header">
+            <img class="logo" src="images/logo.png" alt="logo">
             <nav>
-                <ul>
+                <ul class="nav__links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/members">Members</a></li>
                     <li><a href="/classes">Classes</a></li>
                     <li><a href="/bookings">Bookings</a></li>
                 </ul>
             </nav>
+            <a class='cta' href="#"><button>Contact</button></a>
         </header>
-    </head>
     <body>
         <main>
             <section>
