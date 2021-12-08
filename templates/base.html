@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html>
     <head>
         <title>Gym Manager</title>
 
-<<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Red+Hat+Display:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Red+Hat+Display:wght@300&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href={{ url_for('static', filename='css/style.css' )}}>
+<link rel="stylesheet" href={{ url_for('static', filename='css/classes.css' )}}>
     </head>
         <header class="header">
             <img class="logo" src="images/logo.png" alt="logo">
@@ -22,10 +23,39 @@
     <body>
         <main>
             <section>
-                {% block content %}
-                    
-                {% endblock content %}
+
             </section>
         </main>
     </body>
+</html-->
+
+<html>
+  <body>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Red+Hat+Display:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href={{ url_for('static',
+    filename='css/style.css')}}> <link rel="stylesheet" href={{
+    url_for('static', filename='css/member.css')}}>
+    <div class="wrapper">
+      <div class="box header">
+        <img class="logo" id="logo" src="static/images/logo.png" alt="logo" />
+        <h1>Gym Classes</h1>
+      </div>
+      <div class="box sidebar">
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/classes">Classes</a></li>
+            <li><a href="/bookings">Bookings</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="box content">
+        <main>
+          <section>{% block content %} {% endblock content %}</section>
+        </main>
+      </div>
+      <div class="box footer">Footer</div>
+    </div>
+  </body>
 </html>

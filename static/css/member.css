@@ -1,0 +1,7 @@
+.memberContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  background-color: rgb(79, 123, 133);
+  border: 1px black solid;
+}

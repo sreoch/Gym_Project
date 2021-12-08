@@ -1,0 +1,68 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 20px;
+  margin: 0 0 0 0;
+  background-color: rgb(175, 228, 238);
+  max-width: 30%;
+  padding: 0 20px 20px 20px;
+}
+
+.classesContainer {
+
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    background-color: rgb(79, 123, 133);
+    border: 1px black solid;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.button {
+  cursor: pointer;
+  outline: 0;
+  color: #fff;
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  border: 1px solid transparent;
+  padding: 3px 6px;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+button:hover {
+  color: #fff;
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
+.classInformation {
+  display: flex;
+  width: 30%;
+  margin-left: 3px;
+  background-color: darkslategray;
+  border: 1px black solid;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 5px;
+}
+
+.viewMembers {
+  background-color: rgb(94, 195, 253);
+  width: 15%;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}

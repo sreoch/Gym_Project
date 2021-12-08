@@ -5,17 +5,22 @@
 
 <div>
     <p>
+        
         <h3>All Members</h3>
         {% for member in members %}
+
+        <div class="memberContainer">
+            <div class="informationPanel">
+                <label for="first_name">First Name = {{ member.first_name }}</label>
+                <label for="last_name">Last Name = {{ member.last_name }}</label>
+                <label for="age">Age = {{ member.age }}</label>
+                <label for="membership_type">Membership Type = {{ member.membership_type }}</label>
+                <a href="/members/show/{{member.id}}">Show member info and classes</a>
+            </div>
             <form action="/members/delete/{{ member.id }}" method="POST">
                 <input type="submit" value="Remove">
             </form>
-            <label for="first_name">First Name</label> = {{ member.first_name }},
-            <label for="last_name">Last Name</label> = {{ member.last_name }},
-            <label for="age">Age</label> = {{ member.age }}, 
-            <label for="membership_type">Membership Type</label> = {{ member.membership_type }}
-            <a href="/members/show/{{member.id}}">Show info and classes</a>
-            
+        </div>
             
         {% endfor %}
     </p>
@@ -35,6 +40,7 @@
             <option value="pro">Pro</option>
         </select> <br>
         <input type="submit" value="Add Member">
+        <!-- <button type="submit" value="Add Member">Add Member</button> -->
     </form>
 </div>
 {% endblock content %}

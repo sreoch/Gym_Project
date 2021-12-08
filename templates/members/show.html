@@ -5,16 +5,18 @@
 
 <form action="/members/edit/{{member.id}}">
   <ul>
-    <h3> {{ member.first_name }} {{ member.last_name }}</h3>
-    <li>Age: {{ member.age }}</li>
-    <li>Membership Type: {{ member.membership_type }}</li>
-    <li>
-      Booked for these classes: 
-      {% for gymclass in gymclasses %} {{ gymclass.activity_name }} -- {{
-      gymclass.start_time }} -- {{ gymclass.duration }}
-    </li>
-    {% endfor %}
-    <input type="submit" value="Edit"/>
+    <div class="informationPanel">
+        <h3>{{ member.first_name }} {{ member.last_name }}</h3>
+        <li>Age: {{ member.age }}</li>
+        <li>Membership Type: {{ member.membership_type }}</li>
+        <li>
+          Booked for these classes: {% for gymclass in gymclasses %} {{
+          gymclass.activity_name }} -- {{ gymclass.start_time }} -- {{
+          gymclass.duration }}
+        </li>
+        {% endfor %}
+    </div>
+    <input type="submit" value="Edit" />
   </ul>
 </form>
 

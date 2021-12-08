@@ -27,15 +27,18 @@
 
 <div class="booking_content">
     <p>
-        <h3>All Bookings</h3>
-        <ul>
-        {% for booking in bookings %}
-        <li> {{ booking.member.first_name }} {{ booking.member.last_name }} -- {{ booking.gymclass.activity_name}} -- {{ booking.gymclass.start_time }} </li>
-        <form action="/bookings/delete/{{ booking.id }}" method="POST">
-            <input type="submit" value="Remove">
-        </form>
-        {% endfor %}
-        </ul>
+        
+        <div class="informationPanel">
+            <h3>All Bookings</h3>
+            <ul>
+            {% for booking in bookings %}
+            <li> {{ booking.member.first_name }} {{ booking.member.last_name }} -- {{ booking.gymclass.activity_name}} -- {{ booking.gymclass.start_time }} </li>
+            <form action="/bookings/delete/{{ booking.id }}" method="POST">
+                <input type="submit" value="Remove">
+            </form>
+            {% endfor %}
+            </ul>
+        </div>
     </p>
 </div>
 </div>

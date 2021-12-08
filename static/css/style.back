@@ -1,0 +1,84 @@
+.grid
+
+body {
+    margin: 0px;
+    background: url('/static/images/background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #5E67E2;
+    font-family: 'Fredoka One', cursive;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+header {
+    background-color: #112f61
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #0066cc;
+}
+
+nav {
+    padding: 0px;
+    margin: 0px;
+    padding-right: 20px;
+}
+
+nav, ul, li, a, button {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    /* color: #edf0f1 */
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    text-decoration: none;
+    /* color: #DFDFE6 */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+} 
+
+.logo {
+    cursor: pointer
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #0088a9;
+} 
+
+button {
+    padding: 9px 25px;
+    background-color: rgba(0,136,169,1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rgba(0,136,169,0.8);
+}

@@ -1,13 +1,13 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <ul>
-    <h3>{{ gymclass.activity_name }}</h3>
-    {% for member in members %}
-        <li>{{ member.first_name }} {{ member.last_name }}
-        <form action="/classes/remove/{{ booking }}" method="POST">
-            <input type="submit" value="Remove">
-        </form>
-    {% endfor %}
+  <h3>{{ gymclass.activity_name }}</h3>
+  {% for member in members %}
+  <div class="informationPanel">
+    <li>{{ member.first_name }} {{ member.last_name }}</li>
+    <form action="/classes/remove/{{ booking }}" method="POST">
+      <input type="submit" value="Remove" />
+    </form>
+  </div>
+  {% endfor %}
 </ul>
-{% endblock content %}  
+{% endblock content %}

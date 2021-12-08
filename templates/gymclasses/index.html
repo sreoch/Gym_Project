@@ -3,20 +3,24 @@
 {% block content %}
 
 <p>
-    <h1>All Classes</h1>
-    {% for gymclass in gymclasses %}
-        <h3>{{ gymclass.activity_name }}</h3>
-        <form action="/classes/delete/{{ gymclass.id }}" method="POST">
-            <input type="submit" value="Remove">
-        </form>
-        <form action="/classes/edit/{{ gymclass.id }}">
-            <input type="submit" value="Edit">
-        </form>
-        <label for="start_time">Start time: {{ gymclass.start_time }}</label>
-        <label for="duration">Duration: {{ gymclass.duration }}</label>
-        <label for="description">Description: {{ gymclass.description }}</label>
-        <a href="/classes/{{ gymclass.id }}">View members</a>
-    {% endfor %}
+        <h1>All Classes</h1>
+            {% for gymclass in gymclasses %}
+                <h3>{{ gymclass.activity_name }}</h3>
+                <div class="informationPanel">
+                    <label for="start_time">Start time: {{ gymclass.start_time }}</label>
+                    <label for="duration">Duration: {{ gymclass.duration }}</label>
+                    <label for="description">Description: {{ gymclass.description }}</label>
+                </div>
+                <a class="viewMembers" href="/classes/{{ gymclass.id }}">View members</a>
+                <div class="buttonContainer">
+                    <form action="/classes/delete/{{ gymclass.id }}" method="POST">
+                        <input class="button"  type="submit" value="Remove">
+                    </form>
+                    <form action="/classes/edit/{{ gymclass.id }}">
+                        <input class="button" type="submit" value="Edit">
+                    </form>
+                </div>
+            {% endfor %}
 </p>
 <div>
   <h3>Add New Class</h3>
