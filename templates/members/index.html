@@ -26,21 +26,24 @@
     </p>
 </div>
 <div>
-    <h3>Add New Member</h3>
     <form action="/members/new" method="post">
-        <label for="first_name">First name</label>
-        <input type="text" name="first_name" id="first_name"> <br>
-        <label for="last_name">Last name</label>
-        <input type="text" name="last_name" id="last_name"> <br>
-        <label for="age">Age</label>
-        <input type="number" name="age" id="age" min="14" max="120"> <br>
-        <label for="membership_type">Membership type</label>
-        <select name="membership_type" id="membership_type">
-            <option value="standard">Standard</option>
-            <option value="pro">Pro</option>
-        </select> <br>
-        <input type="submit" value="Add Member">
-        <!-- <button type="submit" value="Add Member">Add Member</button> -->
+        <h3>Add New Member</h3>
+        <div class="formContainer" >
+            <label for="first_name">First name</label>
+            <input type="text" name="first_name" id="first_name">
+            <label for="last_name">Last name</label>
+            <input type="text" name="last_name" id="last_name">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" min="14" max="120"> 
+            <label for="membership_type">Membership type</label>
+            <select name="membership_type" id="membership_type">
+                <option value="standard">Standard</option>
+                <option value="pro">Pro</option>
+            </select>
+            <input type="submit" value="Add Member">
+            <!-- <button type="submit" value="Add Member">Add Member</button> -->
+        </div>
     </form>
+</div>
 </div>
 {% endblock content %}

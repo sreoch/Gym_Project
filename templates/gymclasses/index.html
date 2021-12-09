@@ -5,12 +5,11 @@
 <p>
         <h1>All Classes</h1>
             {% for gymclass in gymclasses %}
+            <div class="informationPanel">
                 <h3>{{ gymclass.activity_name }}</h3>
-                <div class="informationPanel">
                     <label for="start_time">Start time: {{ gymclass.start_time }}</label>
                     <label for="duration">Duration: {{ gymclass.duration }}</label>
                     <label for="description">Description: {{ gymclass.description }}</label>
-                </div>
                 <a class="viewMembers" href="/classes/{{ gymclass.id }}">View members</a>
                 <div class="buttonContainer">
                     <form action="/classes/delete/{{ gymclass.id }}" method="POST">
@@ -23,17 +22,18 @@
             {% endfor %}
 </p>
 <div>
-  <h3>Add New Class</h3>
     <form action="/classes/new" method="post">
+        <h3>Add New Class</h3>
+        <div class="formContainer" >
         <label for="activity_name">Activity name</label>
-        <input type="text" name="activity_name" id="activity_name"> <br>
+        <input type="text" name="activity_name" id="activity_name"> 
         <label for="start_time">Start time</label>
-        <input type="text" name="start_time" id="start_time"> <br>
+        <input type="text" name="start_time" id="start_time">
         <label for="duration">Duration</label>
-        <input type="number" name="duration" id="duration"> <br>
+        <input type="number" name="duration" id="duration">
         <label for="description">Description</label>
         <textarea name="description" id="description" cols="30" rows="3"></textarea>
-        </select> <br>
+        </select>
         <input type="submit" value="Add Class">
     </form>  
 </div>

@@ -1,46 +1,41 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
-
-<div class="wrapper">
 <h1 class="header">Bookings</h1>
 
-
 <form action="/bookings" class="booking_form" method="POST">
-
+  <div class="formContainer">
     <label for="member_id">Select a member</label>
     <select name="member_id" id="member_id">
-        {% for member in members %}
-        <option value="{{ member.id }}">{{ member.first_name }} {{ member.last_name }}</option>
-        {% endfor %}
-    </select> <br>
+      {% for member in members %}
+      <option value="{{ member.id }}">
+        {{ member.first_name }} {{ member.last_name }}
+      </option>
+      {% endfor %}
+    </select>
     <label for="gymclass_id">Select a class</label>
     <select name="gymclass_id" id="gymclass_id">
-        {% for gymclass in gymclasses %}
-        <option value="{{gymclass.id}}">{{ gymclass.activity_name }}</option>
-        {% endfor %}
-    </select> <br>
-    <input type="submit" value="Submit">
-
-    
+      {% for gymclass in gymclasses %}
+      <option value="{{gymclass.id}}">{{ gymclass.activity_name }}</option>
+      {% endfor %}
+    </select>
+    <br />
+    <input type="submit" value="Submit" />
+  </div>
 </form>
 
-<div class="booking_content">
-    <p>
-        
-        <div class="informationPanel">
-            <h3>All Bookings</h3>
-            <ul>
-            {% for booking in bookings %}
-            <li> {{ booking.member.first_name }} {{ booking.member.last_name }} -- {{ booking.gymclass.activity_name}} -- {{ booking.gymclass.start_time }} </li>
-            <form action="/bookings/delete/{{ booking.id }}" method="POST">
-                <input type="submit" value="Remove">
-            </form>
-            {% endfor %}
-            </ul>
-        </div>
-    </p>
-</div>
+<div>
+  <h3>All Bookings</h3>
+  {% for booking in bookings %}
+  <div class="informationPanel">
+    <label>
+      {{ booking.member.first_name }} {{ booking.member.last_name }} -- {{
+      booking.gymclass.activity_name}} -- {{ booking.gymclass.start_time }}
+    </label>
+    <form action="/bookings/delete/{{ booking.id }}" method="POST">
+      <input type="submit" value="Remove" />
+    </form>
+  </div>
+  {% endfor %}
 </div>
 
 {% endblock content %}

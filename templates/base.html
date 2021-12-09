@@ -30,13 +30,13 @@
 </html-->
 
 <html>
-  <body>
+  <body style="margin: 0;">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Red+Hat+Display:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href={{ url_for('static',
     filename='css/style.css')}}> <link rel="stylesheet" href={{
     url_for('static', filename='css/member.css')}}>
     <div class="wrapper">
-      <div class="box header">
+      <div class="box header header-image">
         <img class="logo" id="logo" src="static/images/logo.png" alt="logo" />
         <h1>Gym Classes</h1>
       </div>
@@ -55,7 +55,13 @@
           <section>{% block content %} {% endblock content %}</section>
         </main>
       </div>
-      <div class="box footer">Footer</div>
+      <div class="box footer">
+          <main>
+              <div class=footer>
+              <h2>&copy;Gym Manager</h2>
+            </div>
+          </main>
+      </div>
     </div>
   </body>
 </html>
